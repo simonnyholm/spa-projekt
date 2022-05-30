@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Forside from "./Forside";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -10,7 +11,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route element={<App />}>
-          <Route />
+          <Route path="/" element={<Forside/>} />
         </Route>
       </Routes>
     </BrowserRouter>

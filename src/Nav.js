@@ -5,7 +5,7 @@ const Nav = () => {
     <header>
       <h1>En helt bestemt applikation</h1>
       <nav className="navigation">
-        <Link to="/">Home</Link>
+        <Link to="/">Forside</Link>
         <Link to="/contact">Kontakt</Link>
         <Link to="/about">Om applikationen</Link>
       </nav>

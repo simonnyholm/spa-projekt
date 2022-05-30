@@ -1,20 +1,17 @@
-import { Link, Outlet } from "react-router-dom";
-import Nav from "../Nav";
-
+import { Outlet } from "react-router-dom";
+import Nav from "./Nav";
 
 function App() {
   return (
     <div className="App">
       <div className="page">
         <header className="header">
-          <Nav/>
-          
+          <Nav />
         </header>
         <main className="content">
-          <Outlet/>
+          <Outlet />
         </main>
       </div>
-
     </div>
   );
 }
