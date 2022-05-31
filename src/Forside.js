@@ -10,6 +10,11 @@ const Forside = () => {
   const styles = {
     welcomeSection: css`
       display: flex;
+      justify-content: space-between;
+
+      &article {
+        padding-right: 40px;
+      }
     `,
   };
 
@@ -24,7 +29,9 @@ const Forside = () => {
         />
         <WelcomeImg
           altText="Chef Chefsen er CEO"
-          imgText="Chef Chefsen er CEO"
+          imgText={
+            "Chef Chefsen er CEO. \n Dit ansigt består af 50 forskellige muskler, men i modsætning til resten af kroppen, så bliver flere af disse muskler sjældent brugt."
+          }
         />
       </section>
       <Sycrofancy

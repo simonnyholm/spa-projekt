@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Nav from "./Nav";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import Footer from "./Footer";
 
 function App() {
   const styles = {
@@ -19,6 +20,7 @@ function App() {
         <main className="content">
           <Outlet />
         </main>
+        <Footer/>
       </div>
     </div>
   );

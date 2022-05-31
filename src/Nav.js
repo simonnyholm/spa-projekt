@@ -6,6 +6,7 @@ const Nav = () => {
   const styles = {
     siteHeader: css`
       font-size: 50px;
+      padding: 0 0 0 20px;
     `,
     nav: css`
       display: flex;
@@ -28,6 +29,8 @@ const Nav = () => {
       display: flex;
       justify-content: space-between;
       padding: 0 0 70px 0;
+      background-color: #c6cbfe;
+      margin: 0 0 30px 0;
     `,
   };
   return (

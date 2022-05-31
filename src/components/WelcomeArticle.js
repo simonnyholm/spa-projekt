@@ -5,6 +5,8 @@ const WelcomeArticle = (props) => {
   const styles = {
     article: css`
       width: 800px;
+      padding: 0 30px 0 0;
+
     `,
   };
 

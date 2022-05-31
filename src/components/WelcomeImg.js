@@ -10,6 +10,8 @@ const WelcomeImg = (props) => {
     `,
     imgDiv: css`
       width: 250px;
+      padding: 20px;
+      background-color: rgb(200, 200, 200);
     `,
   };
 
