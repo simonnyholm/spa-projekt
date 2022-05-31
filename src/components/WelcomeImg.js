@@ -7,7 +7,6 @@ const WelcomeImg = (props) => {
   const styles = {
     img: css`
       width: 100%;
-      height: 100%;
     `,
     imgDiv: css`
       width: 250px;
@@ -17,6 +16,7 @@ const WelcomeImg = (props) => {
   return (
     <div css={styles.imgDiv}>
       <img css={styles.img} src={chefImg} alt={props.altText} />
+      <p>{props.imgText}</p>
     </div>
   );
 };
