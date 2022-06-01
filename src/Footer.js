@@ -17,9 +17,11 @@ const Footer = () => {
   };
   return (
     <footer css={styles.footer}>
-      <p>Vi bygger vores værdigrundlag på den følgende grundsætning:</p>
-
-      <Quote />
+        <h3>Tillid er vigtig</h3>
+      <p>Vi bygger vores værdigrundlag på de følgende grundsætninger:</p>
+      <ul>
+        <Quote />
+      </ul>
     </footer>
   );
 };

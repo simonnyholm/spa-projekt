@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-import Slider from "./components/Slider";
+
 import Sycrofancy from "./components/Sycrofancy";
 import WelcomeArticle from "./components/WelcomeArticle";
 import WelcomeImg from "./components/WelcomeImg";
@@ -20,7 +20,6 @@ const Forside = () => {
 
   return (
     <>
-      <Slider />
       <section css={styles.welcomeSection} className="welcome">
         <WelcomeArticle
           heading="Velkommen til applikationen"
