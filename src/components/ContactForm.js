@@ -5,7 +5,6 @@ import { css } from "@emotion/react";
 const ContactForm = () => {
   const styles = {
     form: css`
-      
       max-width: 500px;
       margin: 0 auto;
       text-align: center;
@@ -42,25 +41,24 @@ const ContactForm = () => {
         display: block;
       }
 
-      & button{
+      & button {
         margin: 20px 0 20px 0;
-      padding: 0 30px 0 30px;
-      width: 500px;
-      height: 170px;
-      font-size: 20px;
-      font-weight: 500;
-      border: none;
-      background-color: #7592d5;
-      color: #020611;
-      cursor: pointer;
+        padding: 0 30px 0 30px;
+        width: 500px;
+        height: 170px;
+        font-size: 20px;
+        font-weight: 500;
+        border: none;
+        background-color: #7592d5;
+        color: #020611;
+        cursor: pointer;
 
-      :hover {
-        background-color: #586c9c;
+        :hover {
+          background-color: #586c9c;
+        }
       }
-    }
-    `
-    }
-  
+    `,
+  };
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -145,7 +143,6 @@ const ContactForm = () => {
           </button>
         </div>
       </form>
-      <p>{message}</p>
     </>
   );
 };
