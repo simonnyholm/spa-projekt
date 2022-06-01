@@ -38,16 +38,16 @@ const Quote = () => {
       });
   });
 
-
-
   return (
     <div>
       {isLoading && <p css={styles.quoteText}>Vi tænker...</p>}
       {randomQuote &&
         randomQuote.results.map((pla) => (
-          <p css={styles.quoteText} key={pla.name}>
-            Der er {pla.name} i Gentofte.
-          </p>
+          
+            <li css={styles.quoteText} key={pla.name}>
+              Der er {pla.name} i Gentofte.
+            </li>
+          
         ))}
 
       {error && <p css={styles.quoteText}>{error}</p>}
