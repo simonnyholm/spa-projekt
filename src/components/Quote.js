@@ -20,7 +20,7 @@ const Quote = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("", {})
+    fetch("https://swapi.dev/api/planets", {})
       .then((response) => {
         if (!response.ok) {
           throw Error("Nogle gange er der bare ingen data");
@@ -38,12 +38,17 @@ const Quote = () => {
       });
   });
 
-  console.log(randomQuote);
+
 
   return (
     <div>
       {isLoading && <p css={styles.quoteText}>Vi tænker...</p>}
-      {randomQuote && <p css={styles.quoteText}>{randomQuote}</p>}
+      {randomQuote &&
+        randomQuote.results.map((pla) => (
+          <p css={styles.quoteText} key={pla.name}>
+            Der er {pla.name} i Gentofte.
+          </p>
+        ))}
 
       {error && <p css={styles.quoteText}>{error}</p>}
     </div>
