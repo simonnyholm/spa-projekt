@@ -1,6 +1,7 @@
 import ContactForm from "./ContactForm";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import Sycrofancy from "./Sycrofancy";
 
 const Contact = () => {
   const styles = {
@@ -23,6 +24,7 @@ const Contact = () => {
       <div css={styles.formDiv} className="formdiv">
         <ContactForm />
       </div>
+      <Sycrofancy/>
     </section>
   );
 };
