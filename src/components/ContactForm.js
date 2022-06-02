@@ -18,7 +18,7 @@ const ContactForm = () => {
         width: 100%;
         padding: 6px 10px;
         margin: 10px 0;
-        border: 1px solid #ddd;
+        border: 3px solid #ddd;
         box-sizing: border-box;
         display: block;
       }
@@ -27,7 +27,7 @@ const ContactForm = () => {
         width: 100%;
         padding: 6px 10px;
         margin: 10px 0;
-        border: 1px solid #ddd;
+        border: 3px solid #ddd;
         box-sizing: border-box;
         display: block;
       }
@@ -36,7 +36,7 @@ const ContactForm = () => {
         width: 100%;
         padding: 6px 10px;
         margin: 10px 0;
-        border: 1px solid #ddd;
+        border: 3px solid #ddd;
         box-sizing: border-box;
         display: block;
       }
