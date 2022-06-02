@@ -1,9 +1,9 @@
-import { useState } from "react";
+
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-const SycrofancyButton = () => {
-  const [bonding, setBonding] = useState(false);
+const SycrofancyButton = ({bonding, setBonding}) => {
+  //const [bonding, setBonding] = useState(false);
   const styles = {
     buttonFalse: css`
       margin: 100px 0 0 30px;

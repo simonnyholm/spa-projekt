@@ -2,7 +2,7 @@ import { useState } from "react";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-const ContactForm = () => {
+const ContactForm = (props) => {
   const styles = {
     form: css`
       max-width: 500px;
@@ -137,7 +137,7 @@ const ContactForm = () => {
             ></textarea>
           </label>
         </div>
-        <input type="text" name="" id="bonding" hidden />
+        <input type="text" name="" id="bonding" hidden value={props.bonding} />
         <div>
           <button type="submit">
             Send kontaktanmodning til kontaktadministrationen

@@ -4,7 +4,7 @@ import { css } from "@emotion/react";
 import SycrofancyArticle from "./SycrofancyArticle";
 import SycrofancyButton from "./SycrofancyButton";
 
-const Sycrofancy = ({ heading, body, message, buttonText }) => {
+const Sycrofancy = ({ heading, body, message, buttonText, bonding, setBonding }) => {
   const styles = {
     section: css`
       padding: 30px;
@@ -17,7 +17,7 @@ const Sycrofancy = ({ heading, body, message, buttonText }) => {
   return (
     <section css={styles.section}>
       <SycrofancyArticle heading={heading} body={body} message={message} />
-      <SycrofancyButton buttonText={buttonText} />
+      <SycrofancyButton bonding={bonding} setBonding={setBonding}  buttonText={buttonText} />
     </section>
   );
 };
