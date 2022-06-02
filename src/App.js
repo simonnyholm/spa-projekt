@@ -13,7 +13,7 @@ function App() {
       margin: 30px 70px 30px 70px;
     `,
     themeButton: css`
-              margin: 20px 0 20px 0;
+      margin: 20px 0 20px 0;
       padding: 0 10px 0 10px;
       width: 100%;
       height: 80px;
@@ -26,6 +26,7 @@ function App() {
 
       :hover {
         background-color: #586c9c;
+      }
     `,
   };
 

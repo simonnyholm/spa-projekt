@@ -1,8 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-
-import Sycrofancy from "./components/Sycrofancy";
 import WelcomeArticle from "./components/WelcomeArticle";
 import WelcomeImg from "./components/WelcomeImg";
 
@@ -33,12 +31,6 @@ const Forside = () => {
           }
         />
       </section>
-      <Sycrofancy
-        heading="Vær gode venner med din mellemleder"
-        body="Navnet sykofant stammer fra græsk sukophantes og læses som en sammentrækning af sukon (figen) og phainein (at fremvise). Det knyttes til et forbud mod at eksportere figner fra Athen. De, der afslørede overtrædelser af forbuddet, kaldtes sykofanter figenafslørere. Gradvis blev ordet på græsk en nedsættende betegnelse på den, der involverer sig i retsprocesser udover det, der anses nødvendigt for en rimelig varetagelse af egne interesser."
-        message="Vær en god medarbejder!"
-        buttonText="Bond med bossen!"
-      />
     </>
   );
 };

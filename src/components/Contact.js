@@ -4,7 +4,9 @@ import { css } from "@emotion/react";
 import Sycrofancy from "./Sycrofancy";
 import { useState } from "react";
 
+
 const Contact = () => {
+
   const [bonding, setBonding] = useState(false);
   const styles = {
     formDiv: css`
@@ -23,9 +25,6 @@ const Contact = () => {
         illo magnam iusto distinctio, et itaque repudiandae minima numquam
         aliquid repellat pariatur harum? Non, pariatur!
       </p>
-      <div css={styles.formDiv} className="formdiv">
-        <ContactForm bonding={bonding} />
-      </div>
       <Sycrofancy
         heading="Vær gode venner med din chef"
         body="Navnet sykofant stammer fra græsk sukophantes og læses som en sammentrækning af sukon (figen) og phainein (at fremvise). Det knyttes til et forbud mod at eksportere figner fra Athen. De, der afslørede overtrædelser af forbuddet, kaldtes sykofanter figenafslørere. Gradvis blev ordet på græsk en nedsættende betegnelse på den, der involverer sig i retsprocesser udover det, der anses nødvendigt for en rimelig varetagelse af egne interesser."
@@ -34,6 +33,9 @@ const Contact = () => {
         bonding={bonding}
         setBonding={setBonding}
       />
+      <div css={styles.formDiv} className="formdiv">
+        <ContactForm bonding={bonding} />
+      </div>
     </section>
   );
 };

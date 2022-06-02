@@ -1,6 +1,7 @@
 import { useState } from "react";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { useForm } from "react-hook-form";
 
 const ContactForm = (props) => {
   const styles = {
@@ -60,32 +61,45 @@ const ContactForm = (props) => {
     `,
   };
 
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+  const onSubmit = (data) => console.log("formchecj", data);
+
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [pronoun, setPronoun] = useState("den");
   const [org, setOrg] = useState("");
   const [message, setMessage] = useState("");
 
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
-
   return (
     <>
-      <form css={styles.form} onSubmit={handleSubmit}>
+      <form css={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label>
             Dit fulde navn:
+            {errors.fullName?.type === "required" &&
+              "Du skal udfylde dit fulde navn!"}
+            {errors.fullName?.type === "maxLength" &&
+              "Dit navn må ikke fylde mere end 30 tegn!"}
             <input
               required
               value={fullName}
               onChange={(event) => setFullName(event.target.value)}
+              {...register("fullName", { required: true, maxLength: 30 })}
             />
           </label>
         </div>
         <div>
           <label>
             Din e-mail-adresse:
+            {errors.email?.type === "required" &&
+              "Du skal udfylde dit fulde mail!"}
+            {errors.email?.type === "maxLength" &&
+              "Din email-adresse må ikke fylde mere end 30 tegn!"}
+            {errors.email?.type === "pattern" && "Email skal indeholde '@'!"}
             <input
               type="email"
               name=""
@@ -93,16 +107,23 @@ const ContactForm = (props) => {
               required
               value={email}
               onChange={(event) => setEmail(event.target.value)}
+              {...register("email", {
+                required: true,
+                maxLength: 30,
+                pattern: /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/,
+              })}
             />
           </label>
         </div>
         <div>
           <label>
             Pronomen:
+            {errors.pronoun?.type === "required" && "Du skal vælge pronomen"}
             <select
               required
               value={pronoun}
               onChange={(event) => setPronoun(event.target.value)}
+              {...register("pronoun", { required: true })}
             >
               <option value="han">han</option>
               <option value="hun">hun</option>
@@ -114,17 +135,27 @@ const ContactForm = (props) => {
         <div>
           <label>
             Organisation:
+            {errors.org?.type === "required" &&
+              "Du skal udfylde dit fulde org!"}
+            {errors.org?.type === "maxLength" &&
+              "Dit org må ikke fylde mere end 30 tegn!"}
             <input
               type="text"
               required
               value={org}
               onChange={(event) => setOrg(event.target.value)}
+              {...register("org", { required: true, maxLength: 30 })}
             />
           </label>
         </div>
         <div>
           <label>
             Din besked til kontaktadministrationen:
+            {errors.message?.type === "required" && "Du skal skrive en besked!"}
+            {errors.message?.type === "maxLength" &&
+              "Din besked må ikke fylde mere end 30000 tegn!"}
+            {errors.message?.type === "minLength" &&
+              "Din besked skal min være 15 tegn!"}
             <textarea
               placeholder="Skriv din besked her..."
               name=""
@@ -134,10 +165,21 @@ const ContactForm = (props) => {
               required
               value={message}
               onChange={(event) => setMessage(event.target.value)}
+              {...register("message", {
+                required: true,
+                minLength: 15,
+                maxLength: 30000,
+              })}
             ></textarea>
           </label>
         </div>
-        <input type="text" name="" id="bonding" hidden value={props.bonding} />
+        <input
+          type="hidden"
+          name=""
+          id="bonding"
+          value={props.bonding}
+          {...register("bonding", { required: true })}
+        />
         <div>
           <button type="submit">
             Send kontaktanmodning til kontaktadministrationen
