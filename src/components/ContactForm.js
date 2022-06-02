@@ -137,6 +137,7 @@ const ContactForm = () => {
             ></textarea>
           </label>
         </div>
+        <input type="text" name="" id="bonding" hidden />
         <div>
           <button type="submit">
             Send kontaktanmodning til kontaktadministrationen
