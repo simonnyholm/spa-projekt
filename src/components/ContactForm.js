@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useForm } from "react-hook-form";
@@ -66,13 +66,9 @@ const ContactForm = (props) => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+
   const onSubmit = (data) => console.log("formchecj", data);
 
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [pronoun, setPronoun] = useState("den");
-  const [org, setOrg] = useState("");
-  const [message, setMessage] = useState("");
 
   return (
     <>
@@ -86,8 +82,7 @@ const ContactForm = (props) => {
               "Dit navn må ikke fylde mere end 30 tegn!"}
             <input
               required
-              value={fullName}
-              onChange={(event) => setFullName(event.target.value)}
+
               {...register("fullName", { required: true, maxLength: 30 })}
             />
           </label>
@@ -105,8 +100,8 @@ const ContactForm = (props) => {
               name=""
               id=""
               required
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
+          
+              
               {...register("email", {
                 required: true,
                 maxLength: 30,
@@ -121,8 +116,8 @@ const ContactForm = (props) => {
             {errors.pronoun?.type === "required" && "Du skal vælge pronomen"}
             <select
               required
-              value={pronoun}
-              onChange={(event) => setPronoun(event.target.value)}
+
+             
               {...register("pronoun", { required: true })}
             >
               <option value="han">han</option>
@@ -142,8 +137,8 @@ const ContactForm = (props) => {
             <input
               type="text"
               required
-              value={org}
-              onChange={(event) => setOrg(event.target.value)}
+
+              
               {...register("org", { required: true, maxLength: 30 })}
             />
           </label>
@@ -163,8 +158,8 @@ const ContactForm = (props) => {
               cols="50"
               rows="10"
               required
-              value={message}
-              onChange={(event) => setMessage(event.target.value)}
+
+             
               {...register("message", {
                 required: true,
                 minLength: 15,
