@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useState } from "react";
 
 const ContactForm = (props) => {
   const styles = {
@@ -23,6 +24,7 @@ const ContactForm = (props) => {
         border: 3px solid #ddd;
         box-sizing: border-box;
         display: block;
+        background-color: #ffffff;
       }
 
       & textarea {
@@ -32,6 +34,7 @@ const ContactForm = (props) => {
         border: 3px solid #ddd;
         box-sizing: border-box;
         display: block;
+        background-color: #ffffff;
       }
 
       & select {
@@ -41,6 +44,7 @@ const ContactForm = (props) => {
         border: 3px solid #ddd;
         box-sizing: border-box;
         display: block;
+        background-color: #ffffff;
       }
 
       & button {
@@ -89,6 +93,7 @@ const ContactForm = (props) => {
         .string()
         .min(25, " Din besked skal være mindst 25 tegn langt")
         .max(5000, " Din besked må maksimalt være 500 tegn lang"),
+      bonding: yup.string().required(),
     })
     .required();
 
@@ -98,7 +103,9 @@ const ContactForm = (props) => {
     handleSubmit,
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = (data) => console.log(errors.fullName?.message);
+  const onSubmit = (data) => console.log("output", data);
+
+  const [messageLength, setMessageLength] = useState("");
 
   return (
     <>
@@ -110,7 +117,10 @@ const ContactForm = (props) => {
             <input
               style={
                 errors.fullName?.message !== undefined
-                  ? { border: "solid 5px red", backgroundColor: "yellow" }
+                  ? {
+                      border: "solid 4px rgb(235, 17, 60)",
+                      backgroundColor: "rgb(246, 206, 105)",
+                    }
                   : {}
               }
               {...register("fullName")}
@@ -121,25 +131,65 @@ const ContactForm = (props) => {
           <label>
             Din e-mail-adresse:
             {errors.email?.message}
-            <input type="email" name="" id="" {...register("email")} />
+            <input
+              type="email"
+              name=""
+              id=""
+              style={
+                errors.email?.message !== undefined
+                  ? {
+                      border: "solid 4px rgb(235, 17, 60)",
+                      backgroundColor: "rgb(246, 206, 105)",
+                    }
+                  : {}
+              }
+              {...register("email")}
+            />
           </label>
         </div>
         <div>
           <label>
             Gentag din e-mail-adresse:
             {errors.repEmail?.message}
-            <input type="email" name="" id="" {...register("repEmail")} />
+            <input
+              type="email"
+              name=""
+              id=""
+              style={
+                errors.repEmail?.message !== undefined
+                  ? {
+                      border: "solid 4px rgb(235, 17, 60)",
+                      backgroundColor: "rgb(246, 206, 105)",
+                    }
+                  : {}
+              }
+              {...register("repEmail")}
+            />
           </label>
         </div>
         <div>
           <label>
             Pronomen:
             {errors.pronoun?.message}
-            <select {...register("pronoun")}>
+            <select
+              defaultValue={""}
+              style={
+                errors.pronoun?.message !== undefined
+                  ? {
+                      border: "solid 4px rgb(235, 17, 60)",
+                      backgroundColor: "rgb(246, 206, 105)",
+                    }
+                  : {}
+              }
+              {...register("pronoun")}
+            >
+              <option disabled value="">
+                Vælg et pronomen...
+              </option>
               <option value="han">han</option>
               <option value="hun">hun</option>
               <option value="hen">hen</option>
-              <option value="den">den</option>
+              <option value="de">de</option>
             </select>
           </label>
         </div>
@@ -147,7 +197,18 @@ const ContactForm = (props) => {
           <label>
             Organisation:
             {errors.org?.message}
-            <input type="text" {...register("org")} />
+            <input
+              type="text"
+              style={
+                errors.fullName?.message !== undefined
+                  ? {
+                      border: "solid 4px rgb(235, 17, 60)",
+                      backgroundColor: "rgb(246, 206, 105)",
+                    }
+                  : {}
+              }
+              {...register("org")}
+            />
           </label>
         </div>
         <div>
@@ -155,13 +216,25 @@ const ContactForm = (props) => {
             Din besked til kontaktadministrationen:
             {errors.message?.message}
             <textarea
+              onChange={(event) => {
+                setMessageLength(event.target.value.length);
+              }}
               placeholder="Skriv din besked her..."
               name=""
               id=""
               cols="50"
               rows="10"
+              style={
+                errors.message?.message !== undefined
+                  ? {
+                      border: "solid 4px rgb(235, 17, 60)",
+                      backgroundColor: "rgb(246, 206, 105)",
+                    }
+                  : {}
+              }
               {...register("message")}
             ></textarea>
+            <p>Antal tegn: {messageLength}</p>
           </label>
         </div>
         <input
