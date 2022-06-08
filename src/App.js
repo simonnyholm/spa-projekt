@@ -3,10 +3,15 @@ import Nav from "./Nav";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import Footer from "./Footer";
-import UseDarkMode from "./UseDarkMode";
+import { ThemeContext } from "./contexts/ThemeContext";
+import { useState } from "react";
 
 function App() {
-  const { theme, toggleTheme } = UseDarkMode();
+  const [theme, setTheme] = useState({
+    darkMode: false,
+    light: "#fff",
+    dark: "#333",
+  });
 
   const styles = {
     page: css`
@@ -28,29 +33,34 @@ function App() {
         background-color: #586c9c;
       }
     `,
+    appDiv: css`
+      margin: 0;
+    `,
   };
 
   return (
-    <div
-      className="App"
-      style={{
-        background: theme === "dark" ? "#000" : "#fff",
-        color: theme === "dark" ? "#fff" : "#000",
-      }}
-    >
-      <div css={styles.page} className="page">
-        <header className="header">
-          <Nav />
-        </header>
-        <main className="content">
-          <Outlet />
-        </main>
-        <Footer />
-        <button css={styles.themeButton} onClick={toggleTheme}>
-          Skift farvetema
-        </button>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div css={styles.appDiv} className={theme.darkMode ? "dark-mode" : ""}>
+        <div css={styles.page} className="page">
+          <header className="header">
+            <Nav />
+          </header>
+          <main className="content">
+            <Outlet />
+          </main>
+          <Footer />
+          <button
+            css={styles.themeButton}
+            onClick={() => {
+              setTheme({ darkMode: !theme.darkMode });
+              console.log(theme);
+            }}
+          >
+            Skift farvetema
+          </button>
+        </div>
       </div>
-    </div>
+    </ThemeContext.Provider>
   );
 }
 

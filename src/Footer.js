@@ -7,7 +7,7 @@ const Footer = () => {
   const styles = {
     footer: css`
       margin: 30px 0 0 0;
-      background-color: #c6cbfe;
+      background-color: rgba(3, 184, 255, 0.538);
       padding: 30px;
 
       & p {

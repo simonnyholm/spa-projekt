@@ -1,8 +1,19 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  color: #111;
 }
 
 * {
   box-sizing: border-box;
+  
+}
+
+.dark-mode {
+  color: #fff;
+  background-color: #111;
+}
+
+.dee{
+  color: rgba(255, 3, 238, 0.516)
 }

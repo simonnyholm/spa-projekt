@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { useContext } from "react";
+import { ThemeContext } from "./contexts/ThemeContext";
 
 const Nav = () => {
+  const { theme } = useContext(ThemeContext);
+
   const styles = {
     siteHeader: css`
       font-size: 50px;
@@ -18,7 +22,8 @@ const Nav = () => {
         text-decoration: none;
         font-size: 15px;
         font-weight: 400;
-        color: #111111;
+
+        color: ${theme.darkMode ? "#fff" : "#111"};
       }
 
       & a:hover {
@@ -29,10 +34,11 @@ const Nav = () => {
       display: flex;
       justify-content: space-between;
       padding: 0 0 70px 0;
-      background-color: #c6cbfe;
+      background-color: rgba(3, 184, 255, 0.538);
       margin: 0 0 30px 0;
     `,
   };
+
   return (
     <nav css={styles.headerDiv}>
       <h1 css={styles.siteHeader}>En helt bestemt applikation</h1>

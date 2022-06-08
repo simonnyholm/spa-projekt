@@ -4,20 +4,31 @@ import { css } from "@emotion/react";
 import SycrofancyArticle from "./SycrofancyArticle";
 import SycrofancyButton from "./SycrofancyButton";
 
-const Sycrofancy = ({ heading, body, message, buttonText, bonding, setBonding }) => {
+const Sycrofancy = ({
+  heading,
+  body,
+  message,
+  buttonText,
+  bonding,
+  setBonding,
+}) => {
   const styles = {
     section: css`
       padding: 30px;
       display: flex;
       margin: 30px 0 30px 0;
-      background-color: #ffffd1;
+      background-color: rgba(104, 3, 255, 0.215);
     `,
   };
 
   return (
     <section css={styles.section}>
       <SycrofancyArticle heading={heading} body={body} message={message} />
-      <SycrofancyButton bonding={bonding} setBonding={setBonding}  buttonText={buttonText} />
+      <SycrofancyButton
+        bonding={bonding}
+        setBonding={setBonding}
+        buttonText={buttonText}
+      />
     </section>
   );
 };
