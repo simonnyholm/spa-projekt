@@ -103,9 +103,15 @@ const ContactForm = (props) => {
     handleSubmit,
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = (data) => console.log("output", data);
+  const onSubmit = (data) => 
+  
+  console.log("output", data);
+
+
 
   const [messageLength, setMessageLength] = useState("");
+
+  console.log(messageLength);
 
   return (
     <>
